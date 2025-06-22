@@ -46,18 +46,87 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\RoomController.cs" />
+    <Compile Include="Controller\ServiceRequestController.cs" />
+    <Compile Include="Controller\StaffController.cs" />
+    <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Controller\UtilityBillController.cs" />
     <Compile Include="Model\RoleType.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\Rooms.cs" />
+    <Compile Include="Model\ServiceRequest.cs" />
+    <Compile Include="Model\ServiceRequests.cs" />
     <Compile Include="Model\SqlDbDataAccess.cs" />
+    <Compile Include="Model\Staff.cs" />
+    <Compile Include="Model\Staffs.cs" />
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\Students.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Users.cs" />
+    <Compile Include="Model\UtilityBill.cs" />
+    <Compile Include="Model\UtilityBills.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\AdminHomeFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminHomeFrame.Designer.cs">
+      <DependentUpon>AdminHomeFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ForgetPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ForgetPasswordForm.Designer.cs">
+      <DependentUpon>ForgetPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RoomOperationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RoomOperationForm.Designer.cs">
+      <DependentUpon>RoomOperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ServiceRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ServiceRequestForm.Designer.cs">
+      <DependentUpon>ServiceRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StaffOperationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StaffOperationForm.Designer.cs">
+      <DependentUpon>StaffOperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StudentDashboardForm.Designer.cs">
+      <DependentUpon>StudentDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentOperationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StudentOperationForm.Designer.cs">
+      <DependentUpon>StudentOperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserOperationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserOperationForm.Designer.cs">
+      <DependentUpon>UserOperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UtilityBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UtilityBillForm.Designer.cs">
+      <DependentUpon>UtilityBillForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -68,8 +137,35 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AdminHomeFrame.resx">
+      <DependentUpon>AdminHomeFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ForgetPasswordForm.resx">
+      <DependentUpon>ForgetPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RoomOperationForm.resx">
+      <DependentUpon>RoomOperationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ServiceRequestForm.resx">
+      <DependentUpon>ServiceRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StaffOperationForm.resx">
+      <DependentUpon>StaffOperationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentDashboardForm.resx">
+      <DependentUpon>StudentDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentOperationForm.resx">
+      <DependentUpon>StudentOperationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserOperationForm.resx">
+      <DependentUpon>UserOperationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UtilityBillForm.resx">
+      <DependentUpon>UtilityBillForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

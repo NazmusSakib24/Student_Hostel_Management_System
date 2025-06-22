@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Student_Hostel_Management_System.View;
+
 
 namespace Student_Hostel_Management_System.View
 {
@@ -21,35 +23,72 @@ namespace Student_Hostel_Management_System.View
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            txtUsername.Focus();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
-            int password = Convert.ToInt32(txtPassword.Text);
+            int password;
+
+            if (!int.TryParse(txtPassword.Text, out password))
+            {
+                MessageBox.Show("Password must be a number.");
+                return;
+            }
+
             UserController controller = new UserController();
             User user = controller.SearchUser(username, password);
+
             if (user != null)
             {
-                if (user.Role == "Admin")
-                MessageBox.Show("Login Successful! Welcome " + user.Username);
-                // Proceed to the next form or functionality
+                if (user.Username.Equals(username) && user.Password == password)
+                {
+                    if (user.Role == RoleType.Admin)
+                    {
+                        MessageBox.Show("Welcome Admin");
+                        AdminHomeFrame adf = new AdminHomeFrame(user);
+                        adf.Show();
+                        this.Hide();
+                    }
+                    else if (user.Role == RoleType.Staff)
+                    {
+                        MessageBox.Show("Welcome Staff");
+                        //StaffHomeFrame staff = new StaffHomeFrame(user);
+                        //staff.Show();
+                        //this.Hide();
+                    }
+                    else if (user.Role == RoleType.Student)
+                    {
+                        MessageBox.Show("Welcome Student");
+                        StudentDashboardForm student = new StudentDashboardForm(user);
+                        student.Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password");
+                }
             }
             else
             {
-                MessageBox.Show("Invalid username or password. Please try again.");
+                MessageBox.Show("Invalid Username or Password");
             }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            //RegistrationForm rf = new RegistrationForm();
+           // rf.Show();
         }
 
         private void btnForget_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            ForgetPasswordForm fp = new ForgetPasswordForm();
+            fp.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

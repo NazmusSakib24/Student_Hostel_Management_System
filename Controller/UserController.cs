@@ -35,5 +35,11 @@ namespace Student_Hostel_Management_System.Controller
         {
             return users.GetAllUser();
         }
+
+        public User SearchUserByUsernameAndSecurityAns(string username, string securityAns)
+        {
+            return users.SearchUserByUsernameAndSecurityAns(username, securityAns);
+        }
+
     }
 }

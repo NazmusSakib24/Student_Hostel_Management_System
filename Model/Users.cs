@@ -73,7 +73,9 @@ namespace Student_Hostel_Management_System.Model
 
         public List<User> GetAllUser()
         {
-            return null;
+            SqlCommand cmd = sda.GetQuery("SELECT * FROM Users;");
+            cmd.CommandType = CommandType.Text;
+            return GetData(cmd);
         }
 
         public List<User> GetData(SqlCommand cmd)
@@ -101,6 +103,25 @@ namespace Student_Hostel_Management_System.Model
             cmd.Connection.Close();
             return userlist;
         }
+
+        public User SearchUserByUsernameAndSecurityAns(string username, string securityAns)
+        {
+            SqlCommand cmd = sda.GetQuery("SELECT * FROM Users WHERE Username=@username AND SecurityAns=@securityAns;");
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@securityAns", securityAns);
+
+            List<User> userList = GetData(cmd);
+            if (userList.Count > 0)
+            {
+                return userList[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 
     }
 }
