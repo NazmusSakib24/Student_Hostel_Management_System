@@ -294,7 +294,7 @@ namespace Student_Hostel_Management_System.View
             if (e.RowIndex != -1)
 
             {
-
+                
                 DataGridViewRow row = dgvUsers.Rows[e.RowIndex];
 
                 txtUserID.Text = row.Cells[0].Value.ToString();

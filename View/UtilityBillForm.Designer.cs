@@ -49,6 +49,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnCllear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,11 +239,22 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnCllear
+            // 
+            this.btnCllear.Location = new System.Drawing.Point(504, 330);
+            this.btnCllear.Name = "btnCllear";
+            this.btnCllear.Size = new System.Drawing.Size(75, 23);
+            this.btnCllear.TabIndex = 21;
+            this.btnCllear.Text = "Clear";
+            this.btnCllear.UseVisualStyleBackColor = true;
+            this.btnCllear.Click += new System.EventHandler(this.btnCllear_Click);
+            // 
             // UtilityBillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 553);
+            this.Controls.Add(this.btnCllear);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSearch);
@@ -297,5 +309,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnCllear;
     }
 }

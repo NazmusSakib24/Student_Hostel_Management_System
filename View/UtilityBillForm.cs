@@ -39,36 +39,99 @@ namespace Student_Hostel_Management_System.View
             dgvBills.DataSource = controller.GetAllBills();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        
+            private void btnAdd_Click(object sender, EventArgs e)
         {
+            UtilityBill bill = new UtilityBill();
+            bill.RoomID = Convert.ToInt32(cmbRoomID.SelectedItem);
+            bill.Month = cmbMonth.SelectedItem.ToString();
+            bill.Electricity = (float)Convert.ToDouble(txtElectricity.Text);
+            bill.Water = (float)Convert.ToDouble(txtWater.Text);
+            bill.Gas = (float)Convert.ToDouble(txtGas.Text);
+            bill.Status = cmbStatus.SelectedItem.ToString();
 
+            controller.AddBill(bill);
+            MessageBox.Show("Bill added successfully.");
+            dgvBills.DataSource = controller.GetAllBills();
         }
+
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (txtBillID.Text == "")
+            {
+                MessageBox.Show("Please select a bill to update.");
+                return;
+            }
 
+            UtilityBill bill = new UtilityBill();
+            bill.BillID = Convert.ToInt32(txtBillID.Text);
+            bill.RoomID = Convert.ToInt32(cmbRoomID.SelectedItem);
+            bill.Month = cmbMonth.SelectedItem.ToString();
+            bill.Electricity = (float)Convert.ToDouble(txtElectricity.Text);
+            bill.Water = (float)Convert.ToDouble(txtWater.Text);
+            bill.Gas = (float)Convert.ToDouble(txtGas.Text);
+            bill.Status = cmbStatus.SelectedItem.ToString();
+
+            controller.UpdateBill(bill);
+            MessageBox.Show("Bill updated successfully.");
+            dgvBills.DataSource = controller.GetAllBills();
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (txtBillID.Text == "")
+            {
+                MessageBox.Show("Please select a bill to delete.");
+                return;
+            }
 
+            int billId = Convert.ToInt32(txtBillID.Text);
+            controller.DeleteBill(billId);
+            MessageBox.Show("Bill deleted successfully.");
+            dgvBills.DataSource = controller.GetAllBills();
         }
+
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtBillID.Text == "")
+            {
+                MessageBox.Show("Please enter a Bill ID to search.");
+                return;
+            }
 
+            int billId = Convert.ToInt32(txtBillID.Text);
+            UtilityBill bill = controller.SearchBill(billId);
+
+            if (bill != null)
+            {
+                cmbRoomID.SelectedItem = bill.RoomID;
+                cmbMonth.SelectedItem = bill.Month;
+                txtElectricity.Text = bill.Electricity.ToString();
+                txtWater.Text = bill.Water.ToString();
+                txtGas.Text = bill.Gas.ToString();
+                cmbStatus.SelectedItem = bill.Status;
+            }
+            else
+            {
+                MessageBox.Show("Bill not found.");
+            }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtBillID.Clear();
-            txtElectricity.Clear();
-            txtWater.Clear();
-            txtGas.Clear();
-            cmbMonth.SelectedIndex = 0;
-            cmbRoomID.SelectedIndex = 0;
-            cmbStatus.SelectedIndex = 0;
-        }
+
+        ///private void btnClear_Click(object sender, EventArgs e)
+        //{
+           // txtBillID.Clear();
+          //txtElectricity.Clear();
+           // txtWater.Clear();
+            //txtGas.Clear();
+            //cmbMonth.SelectedIndex = 0;
+            //cmbRoomID.SelectedIndex = 0;
+            //cmbStatus.SelectedIndex = 0;
+        //}
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -90,6 +153,18 @@ namespace Student_Hostel_Management_System.View
                 txtGas.Text = row.Cells[5].Value.ToString();
                 cmbStatus.SelectedItem = row.Cells[6].Value.ToString();
             }
+        }
+
+        private void btnCllear_Click(object sender, EventArgs e)
+        {
+            txtBillID.Clear();
+            txtElectricity.Clear();
+            txtWater.Clear();
+            txtGas.Clear();
+            cmbMonth.SelectedIndex = 0;
+            cmbRoomID.SelectedIndex = 0;
+            cmbStatus.SelectedIndex = 0;
+
         }
     }
 }

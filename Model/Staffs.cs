@@ -86,7 +86,7 @@ namespace Student_Hostel_Management_System.Model
                     {
                         Staff s = new Staff();
                         s.StaffID = reader.GetInt32(0);
-                        s.UserID = reader.GetInt32(1);
+                       // s.UserID = reader.GetInt32(1);
                         s.Name = reader.GetString(2);
                         s.Phone = reader.GetString(3);
                         list.Add(s);

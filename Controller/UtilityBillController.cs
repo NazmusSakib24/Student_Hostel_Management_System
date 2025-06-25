@@ -21,14 +21,14 @@ namespace Student_Hostel_Management_System.Controller
             bills.UpdateBill(bill);
         }
 
-        public void DeleteBill(int billID)
+        public void DeleteBill(int billId)
         {
-            bills.DeleteBill(billID);
+            bills.DeleteBill(billId);
         }
 
-        public UtilityBill SearchBill(int billID)
+        public UtilityBill SearchBill(int billId)
         {
-            return bills.SearchBill(billID);
+            return bills.SearchBill(billId);
         }
 
         public List<UtilityBill> GetAllBills()
