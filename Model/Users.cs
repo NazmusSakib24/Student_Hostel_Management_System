@@ -91,7 +91,8 @@ namespace Student_Hostel_Management_System.Model
                     cmdStudents.Parameters.AddWithValue("@phone", "01000000000"); // Set default Phone number
 
                     // For nullable columns where you want to insert SQL NULL, use DBNull.Value
-                    cmdStudents.Parameters.AddWithValue("@assignedRoomId", "0"); // Set AssignedRoomID to NULL
+                    cmdStudents.Parameters.AddWithValue("@assignedRoomId", 1);
+
 
                     // Open, execute, and close connection for the Students table insert
                     cmdStudents.Connection.Open();

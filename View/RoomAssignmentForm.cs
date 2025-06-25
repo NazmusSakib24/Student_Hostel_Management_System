@@ -17,7 +17,7 @@ namespace Student_Hostel_Management_System.View
     public partial class RoomAssignmentForm : Form
     {
         private User loggedInUser;
-        Students students = new Students(); 
+        Students students = new Students();
         public RoomAssignmentForm()
         {
             InitializeComponent();
@@ -33,14 +33,14 @@ namespace Student_Hostel_Management_System.View
             LoadRooms();
         }
 
-        void LoadStudents() 
+        void LoadStudents()
         {
             StudentController studentController = new StudentController();
             List<Student> studentList = studentController.GetAllStudents();
 
             cmbStudent.DataSource = studentList;
-            cmbStudent.DisplayMember = "studentID";
-            cmbStudent.ValueMember = "studentID";
+            cmbStudent.DisplayMember = "StudentID";
+            cmbStudent.ValueMember = "StudentID";
         }
 
         void LoadRooms()
@@ -63,21 +63,22 @@ namespace Student_Hostel_Management_System.View
 
         private void btnAssign_Click(object sender, EventArgs e)
         {
-            if (cmbStudent.Text == "" || cmbRoom.Text == "")
+            if (cmbStudent.SelectedValue == null || cmbRoom.SelectedValue == null)
             {
                 MessageBox.Show("Please select both student and room.");
                 return;
             }
 
-            int studentId = Convert.ToInt32(cmbStudent.Text);
-            int roomId = Convert.ToInt32(cmbRoom.Text);
+            int studentId = Convert.ToInt32(cmbStudent.SelectedValue);
+            int roomId = Convert.ToInt32(cmbRoom.SelectedValue);
 
             students.AssignRoom(studentId, roomId);
 
             MessageBox.Show("Room assigned successfully!");
-            cmbStudent.Text = "";
-            cmbRoom.Text = "";
+            cmbStudent.SelectedIndex = -1;
+            cmbRoom.SelectedIndex = -1;
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -87,4 +88,3 @@ namespace Student_Hostel_Management_System.View
         }
     }
 }
-

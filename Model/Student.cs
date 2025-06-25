@@ -52,15 +52,15 @@ namespace Student_Hostel_Management_System.Model
 
         public Student(int studentID, int userID, string name, string phone, int assignedRoomID)
         {
-            this.studentID = studentID;
-            this.userID = userID;
-            this.name = name;
-            this.phone = phone;
-            this.assignedRoomID = assignedRoomID;
-           
+            StudentID = studentID;
+            UserID = userID;
+            Name = name;
+            Phone = phone;
+            AssignedRoomID = assignedRoomID;
+
         }
 
-        
+
     }
 }
 

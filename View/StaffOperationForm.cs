@@ -27,7 +27,7 @@ namespace Student_Hostel_Management_System.View
         {
             UserController userController = new UserController();
             List<User> userList = userController.GetAlluser()
-                .Where(u => u.Role == RoleType.Staff).ToList();
+                .Where(u => u.Role == RoleType.Staff || u.Role==RoleType.Admin).ToList();
 
             cmbUserID.DataSource = userList;
             cmbUserID.DisplayMember = "Username";

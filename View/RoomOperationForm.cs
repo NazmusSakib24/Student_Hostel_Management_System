@@ -170,6 +170,7 @@ namespace Student_Hostel_Management_System.View
 
         private void btnAssign_Click(object sender, EventArgs e)
         {
+            this.Hide();
             RoomAssignmentForm assignmentForm = new RoomAssignmentForm(loggedInUser);
             assignmentForm.ShowDialog();
         }

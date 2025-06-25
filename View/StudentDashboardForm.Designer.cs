@@ -97,6 +97,7 @@
             this.btnRequest.TabIndex = 5;
             this.btnRequest.Text = "Submit Service Request";
             this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click_1);
             // 
             // btnMyRequests
             // 

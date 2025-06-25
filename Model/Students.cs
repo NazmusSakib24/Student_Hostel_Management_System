@@ -86,7 +86,8 @@ namespace Student_Hostel_Management_System.Model
                     s.Name = reader.GetString(2);
                     s.Phone = reader.GetString(3);
                     s.AssignedRoomID = reader.GetInt32(4);
-                    studentList.Add(s);
+                   
+                    studentList.Add(s); 
                 }
 
                 reader.Close();
@@ -95,6 +96,7 @@ namespace Student_Hostel_Management_System.Model
             cmd.Connection.Close();
             return studentList;
         }
+
 
         public Student GetStudentByUserID(int userId)
         {

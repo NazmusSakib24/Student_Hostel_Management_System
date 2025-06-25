@@ -108,5 +108,13 @@ namespace Student_Hostel_Management_System.View
             LoginForm login = new LoginForm();
             login.Show();
         }
+
+        private void btnRequest_Click_1(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            ServiceRequestForm x = new ServiceRequestForm(loggedInUser);
+            x.Show();
+        }
     }
 }
