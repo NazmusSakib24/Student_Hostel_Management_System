@@ -29,11 +29,35 @@ namespace Student_Hostel_Management_System.Model
             this.status = status;
         }
 
-        public int RequestID { get => requestID; set => requestID = value; }
-        public int StudentID { get => studentID; set => studentID = value; }
-        public int RoomID { get => roomID; set => roomID = value; }
-        public string Type { get => type; set => type = value; }
-        public string Description { get => description; set => description = value; }
-        public string Status { get => status; set => status = value; }
+        public int RequestID 
+        {   get { return this.requestID; }
+            set { this.requestID = value; }
+        }  
+        public int StudentID 
+        {
+            get { return this.studentID; }
+            set { this.studentID = value; }
+        }
+
+        public int RoomID
+        {
+            get { return this.roomID; }
+            set { this.roomID = value; }
+        }
+        public string Type
+        {
+            get { return this.type; }
+            set { this.type = value; }
+        }
+        public string Description
+        {
+            get { return this.description; }
+            set { this.description = value; }
+        }
+        public string Status
+        {
+            get { return this.status; }
+            set { this.status = value; }
+        }
     }
 }

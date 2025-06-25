@@ -8,22 +8,48 @@ namespace Student_Hostel_Management_System.Model
 {
     public class Staff
     {
-      
-        
-            public int StaffID { get; set; }
-            public int UserID { get; set; }
-            public string Name { get; set; }
-            public string Phone { get; set; }
 
-            public Staff() { }
 
-            public Staff(int staffID, int userID, string name, string phone)
+        public int staffID;
+        public int userID;
+        public string name;
+        public string phone;
+
+        public Staff() { }
+
+        public Staff(int staffID, int userID, string name, string phone)
             {
-                this.StaffID = staffID;
-                this.UserID = userID;
-                this.Name = name;
-                this.Phone = phone;
+              this.staffID = staffID;
+              this.userID = userID;
+              this.name = name;
+              this.phone = phone;
             }
+
+        public int StaffID
+        {
+            get { return this.staffID; }
+            set { this.staffID = value; }
+
+        }
+
+        public int UserID
+        {
+            get { return this.userID; }
+            set { this.userID = value; }    
+        }
+
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
+        }
+
+        public string Phone
+        {
+            get { return this.phone; }
+            set { this.phone = value; }
+        }
+       
         }
     }
 
