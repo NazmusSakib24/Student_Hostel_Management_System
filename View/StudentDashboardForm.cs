@@ -42,8 +42,8 @@ namespace Student_Hostel_Management_System.View
         private void btnRequest_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StudentRequestForm requestForm = new StudentRequestForm(loggedInUser);
-            requestForm.Show();
+            //StudentRequestForm requestForm = new StudentRequestForm(loggedInUser);
+            //requestForm.Show();
         }
 
         private void btnMyRequests_Click(object sender, EventArgs e)

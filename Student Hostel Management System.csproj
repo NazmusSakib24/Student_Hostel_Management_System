@@ -86,6 +86,12 @@
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\RoomAssignmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RoomAssignmentForm.Designer.cs">
+      <DependentUpon>RoomAssignmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RoomOperationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RoomAssignmentForm.resx">
+      <DependentUpon>RoomAssignmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RoomOperationForm.resx">
       <DependentUpon>RoomOperationForm.cs</DependentUpon>

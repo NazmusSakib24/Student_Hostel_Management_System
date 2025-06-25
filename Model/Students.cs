@@ -127,5 +127,18 @@ namespace Student_Hostel_Management_System.Model
                 return null;
             }
         }
+
+        public void AssignRoom(int studentID, int roomID)
+        {
+            SqlCommand cmd = sda.GetQuery("UPDATE Students SET AssignedRoomID = @roomID WHERE StudentID = @studentID;");
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@studentID", studentID);
+            cmd.Parameters.AddWithValue("@roomID", roomID);
+            cmd.Connection.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+        }
+
+
     }
 }
