@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Student_Hostel_Management_System.Controller;
+using Student_Hostel_Management_System.Model;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,12 +11,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Student_Hostel_Management_System.Model;
 
 namespace Student_Hostel_Management_System.View
 {
     public partial class RoomAssignmentForm : Form
     {
+        private User loggedInUser;
         Students students = new Students(); 
         public RoomAssignmentForm()
         {
@@ -23,42 +25,35 @@ namespace Student_Hostel_Management_System.View
             LoadRooms();
         }
 
+        public RoomAssignmentForm(User user)
+        {
+            InitializeComponent();
+            this.loggedInUser = user;
+            LoadStudents();
+            LoadRooms();
+        }
+
         void LoadStudents() 
         {
-            SqlDbDataAccess sda = new SqlDbDataAccess();
-            SqlCommand cmd = sda.GetQuery("Select StudentID FROM Students;");
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
+            StudentController studentController = new StudentController();
+            List<Student> studentList = studentController.GetAllStudents();
 
-            while (reader.Read())
-            {
-                cmbStudent.Items.Add(reader["StudenID"].ToString());
-            }
-
-            reader.Close();
-            cmd.Connection.Close();
-
+            cmbStudent.DataSource = studentList;
+            cmbStudent.DisplayMember = "studentID";
+            cmbStudent.ValueMember = "studentID";
         }
 
         void LoadRooms()
         {
-            SqlDbDataAccess sda = new SqlDbDataAccess();
-            SqlCommand cmd = sda.GetQuery("Select RoomID From Rooms Where Status 'Availabl';");
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Connection.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
+            RoomController roomController = new RoomController();
+            List<Room> roomList = roomController.GetAllRooms();
 
-            while (reader.Read())
-            {
-                cmbRoom.Items.Add(reader["RoomID"].ToString());
-            }
+            cmbRoom.DataSource = roomList;
+            cmbRoom.DisplayMember = "RoomID";
+            cmbRoom.ValueMember = "RoomID";
 
-            reader.Close();
-            cmd.Connection.Close();
-            
         }
-      
+
 
 
         private void RoomAssignmentForm_Load(object sender, EventArgs e)
@@ -82,6 +77,13 @@ namespace Student_Hostel_Management_System.View
             MessageBox.Show("Room assigned successfully!");
             cmbStudent.Text = "";
             cmbRoom.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RoomOperationForm roomOperationForm = new RoomOperationForm(loggedInUser);
+            roomOperationForm.Show();
+            this.Hide();
         }
     }
 }

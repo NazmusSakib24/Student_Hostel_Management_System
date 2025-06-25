@@ -33,6 +33,7 @@
             this.lblRoom = new System.Windows.Forms.Label();
             this.cmbRoom = new System.Windows.Forms.ComboBox();
             this.btnAssign = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblStudent
@@ -79,11 +80,22 @@
             this.btnAssign.UseVisualStyleBackColor = true;
             this.btnAssign.Click += new System.EventHandler(this.btnAssign_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(276, 301);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RoomAssignmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 404);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAssign);
             this.Controls.Add(this.cmbRoom);
             this.Controls.Add(this.lblRoom);
@@ -105,5 +117,6 @@
         private System.Windows.Forms.Label lblRoom;
         private System.Windows.Forms.ComboBox cmbRoom;
         private System.Windows.Forms.Button btnAssign;
+        private System.Windows.Forms.Button btnBack;
     }
 }
