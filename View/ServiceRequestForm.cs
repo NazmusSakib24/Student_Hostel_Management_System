@@ -28,7 +28,7 @@ namespace Student_Hostel_Management_System.View
             cmbStatus.Items.AddRange(new string[] { "Pending", "Resolved" });
             cmbStatus.SelectedIndex = 0;
 
-            // Fill RoomIDs
+           
             RoomController roomController = new RoomController();
             List<Room> rooms = roomController.GetAllRooms();
             cmbRoomID.Items.Clear();
@@ -37,7 +37,7 @@ namespace Student_Hostel_Management_System.View
                 cmbRoomID.Items.Add(r.RoomID);
             }
 
-            // Fill StudentIDs
+     
             StudentController studentController = new StudentController();
             List<Student> students = studentController.GetAllStudents();
             cmbStudentID.Items.Clear();
@@ -125,7 +125,7 @@ namespace Student_Hostel_Management_System.View
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AdminHomeFrame a = new AdminHomeFrame(loggedInUser);
+            StudentDashboardForm a = new StudentDashboardForm(loggedInUser);
             a.Show();
         }
 

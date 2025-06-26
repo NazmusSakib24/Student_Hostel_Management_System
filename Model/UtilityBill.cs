@@ -18,7 +18,7 @@ namespace Student_Hostel_Management_System.Model
 
             public UtilityBill()
             {
-                // Default constructor
+                
             }
 
             public UtilityBill(int billID, int roomID, string month, float electricity, float water, float gas, string status)

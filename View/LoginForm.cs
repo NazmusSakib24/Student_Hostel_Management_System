@@ -79,16 +79,16 @@ namespace Student_Hostel_Management_System.View
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             //RegistrationForm rf = new RegistrationForm();
            // rf.Show();
         }
 
         private void btnForget_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ForgetPasswordForm fp = new ForgetPasswordForm();
-            fp.Show();
+            //this.Hide();
+            ///ForgetPasswordForm fp = new ForgetPasswordForm();
+            //fp.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

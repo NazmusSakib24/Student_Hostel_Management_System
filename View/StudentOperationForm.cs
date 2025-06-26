@@ -40,8 +40,8 @@ namespace Student_Hostel_Management_System.View
                 .ToList();
 
             cmbUserID.DataSource = userList;
-            cmbUserID.DisplayMember = "Username"; // what the user sees
-            cmbUserID.ValueMember = "UserID";     // actual ID stored
+            cmbUserID.DisplayMember = "Username"; 
+            cmbUserID.ValueMember = "UserID";    
 
         }
 
@@ -115,7 +115,7 @@ namespace Student_Hostel_Management_System.View
 
                 dgvStudents.DataSource = controller.GetAllStudents();
                 dgvStudents.Refresh();
-                //ClearFields(); // optional if you extract clear logic
+             
             }
             catch (Exception ex)
             {

@@ -28,7 +28,7 @@ namespace Student_Hostel_Management_System.View
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
             this.Hide();
-            UserOperationForm uof = new UserOperationForm(loggedInUser); // if constructor takes user
+            UserOperationForm uof = new UserOperationForm(loggedInUser);
             uof.Show();
         }
 

@@ -27,7 +27,6 @@ namespace Student_Hostel_Management_System.View
             cmbStatus.Items.Add("Unpaid");
             cmbStatus.SelectedIndex = 0;
 
-            // Populate Room IDs
             RoomController roomController = new RoomController();
             List<Room> rooms = roomController.GetAllRooms();
             cmbRoomID.Items.Clear();
@@ -114,24 +113,13 @@ namespace Student_Hostel_Management_System.View
                 txtWater.Text = bill.Water.ToString();
                 txtGas.Text = bill.Gas.ToString();
                 cmbStatus.SelectedItem = bill.Status;
+                MessageBox.Show("Bill found.");
             }
             else
             {
                 MessageBox.Show("Bill not found.");
             }
         }
-
-
-        ///private void btnClear_Click(object sender, EventArgs e)
-        //{
-           // txtBillID.Clear();
-          //txtElectricity.Clear();
-           // txtWater.Clear();
-            //txtGas.Clear();
-            //cmbMonth.SelectedIndex = 0;
-            //cmbRoomID.SelectedIndex = 0;
-            //cmbStatus.SelectedIndex = 0;
-        //}
 
         private void btnBack_Click(object sender, EventArgs e)
         {

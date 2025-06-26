@@ -25,7 +25,7 @@ namespace Student_Hostel_Management_System.View
             cmbStatus.Items.Add("Occupied");
             cmbStatus.SelectedIndex = 0;
 
-            txtRoomID.Enabled = false; // RoomID is auto-generated and read-only
+            txtRoomID.Enabled = false;
             dgvRooms.DataSource = controller.GetAllRooms();
         }
 
@@ -138,10 +138,10 @@ namespace Student_Hostel_Management_System.View
             if (e.RowIndex != -1)
             {
                 DataGridViewRow row = dgvRooms.Rows[e.RowIndex];
-                txtRoomID.Text = row.Cells[0].Value.ToString();         // RoomID
-                txtRoomNumber.Text = row.Cells[1].Value.ToString();     // RoomNumber
-                txtCapacity.Text = row.Cells[2].Value.ToString();       // Capacity
-                cmbStatus.SelectedItem = row.Cells[3].Value.ToString(); // Status
+                txtRoomID.Text = row.Cells[0].Value.ToString();         
+                txtRoomNumber.Text = row.Cells[1].Value.ToString();     
+                txtCapacity.Text = row.Cells[2].Value.ToString();       
+                cmbStatus.SelectedItem = row.Cells[3].Value.ToString();
                 txtRoomID.Enabled = false;
             }
         }

@@ -41,7 +41,7 @@ namespace Student_Hostel_Management_System.View
 
             cmbRole.DataSource = Enum.GetValues(typeof(RoleType));
 
-            txtUserID.Enabled = false; // Prevent editing
+            txtUserID.Enabled = false; 
 
             dgvUsers.DataSource = controller.GetAlluser();
 
@@ -72,8 +72,6 @@ namespace Student_Hostel_Management_System.View
                 dgvUsers.DataSource = controller.GetAlluser();
 
                 dgvUsers.Refresh();
-
-                // Clear fields (inline, like teacher)
 
                 txtUserID.Clear();
 
@@ -137,8 +135,6 @@ namespace Student_Hostel_Management_System.View
 
                 dgvUsers.Refresh();
 
-                // Clear fields
-
                 txtUserID.Clear();
 
                 txtUserID.Enabled = true;
@@ -190,8 +186,6 @@ namespace Student_Hostel_Management_System.View
                 dgvUsers.DataSource = controller.GetAlluser();
 
                 dgvUsers.Refresh();
-
-                // Clear fields
 
                 txtUserID.Clear();
 
