@@ -54,9 +54,9 @@ namespace Student_Hostel_Management_System.View
                     else if (user.Role == RoleType.Staff)
                     {
                         MessageBox.Show("Welcome Staff");
-                        //StaffHomeFrame staff = new StaffHomeFrame(user);
-                        //staff.Show();
-                        //this.Hide();
+                        StaffHomeFrom staff = new StaffHomeFrom(user);
+                        staff.Show();
+                        this.Hide();
                     }
                     else if (user.Role == RoleType.Student)
                     {

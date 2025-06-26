@@ -131,15 +131,95 @@ namespace Student_Hostel_Management_System.View
 
         private void dgvRequests_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            // Ensure a valid row is clicked and not the header
+            if (e.RowIndex >= 0 && e.RowIndex < dgvRequest.Rows.Count)
             {
                 DataGridViewRow row = dgvRequest.Rows[e.RowIndex];
-                txtRequestID.Text = row.Cells[0].Value.ToString();
-                cmbStudentID.SelectedItem = Convert.ToInt32(row.Cells[1].Value);
-                cmbRoomID.SelectedItem = Convert.ToInt32(row.Cells[2].Value);
-                cmbType.SelectedItem = row.Cells[3].Value.ToString();
-                txtDescription.Text = row.Cells[4].Value.ToString();
-                cmbStatus.SelectedItem = row.Cells[5].Value.ToString();
+
+                // Safely set text for TextBox controls
+                txtRequestID.Text = row.Cells[0].Value?.ToString() ?? string.Empty;
+                txtDescription.Text = row.Cells[4].Value?.ToString() ?? string.Empty;
+
+                // For ComboBoxes, use FindStringExact or iterate to find the item
+                // It's crucial that the values in the DataGridView match the items in the ComboBoxes.
+
+                // For cmbStudentID:
+                if (int.TryParse(row.Cells[1].Value?.ToString(), out int studentId))
+                {
+                    int index = cmbStudentID.FindStringExact(studentId.ToString());
+                    if (index != -1)
+                    {
+                        cmbStudentID.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        // Handle case where studentId is not found in cmbStudentID
+                        cmbStudentID.SelectedIndex = -1; // Or set to a default/empty value
+                    }
+                }
+                else
+                {
+                    cmbStudentID.SelectedIndex = -1; // Or handle invalid data
+                }
+
+                // For cmbRoomID:
+                if (int.TryParse(row.Cells[2].Value?.ToString(), out int roomId))
+                {
+                    int index = cmbRoomID.FindStringExact(roomId.ToString());
+                    if (index != -1)
+                    {
+                        cmbRoomID.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        // Handle case where roomId is not found in cmbRoomID
+                        cmbRoomID.SelectedIndex = -1;
+                    }
+                }
+                else
+                {
+                    cmbRoomID.SelectedIndex = -1;
+                }
+
+                // For cmbType:
+                string typeValue = row.Cells[3].Value?.ToString();
+                if (!string.IsNullOrEmpty(typeValue))
+                {
+                    int index = cmbType.FindStringExact(typeValue);
+                    if (index != -1)
+                    {
+                        cmbType.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        // Handle case where typeValue is not found in cmbType
+                        cmbType.SelectedIndex = -1;
+                    }
+                }
+                else
+                {
+                    cmbType.SelectedIndex = -1;
+                }
+
+                // For cmbStatus:
+                string statusValue = row.Cells[5].Value?.ToString();
+                if (!string.IsNullOrEmpty(statusValue))
+                {
+                    int index = cmbStatus.FindStringExact(statusValue);
+                    if (index != -1)
+                    {
+                        cmbStatus.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        // Handle case where statusValue is not found in cmbStatus
+                        cmbStatus.SelectedIndex = -1;
+                    }
+                }
+                else
+                {
+                    cmbStatus.SelectedIndex = -1;
+                }
             }
         }
     }
